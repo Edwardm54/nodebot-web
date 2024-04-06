@@ -2,15 +2,18 @@ var  sendBtn = document.getElementById("sendBtn");
 var  textbox = document.getElementById("textbox");
 var  chatContainer = document.getElementById("chatContainer");
 
+
 var user = {message:""};
 
 
 var arrayOfPossibleMessage = [
     {message:"hola", response:"¡Saludos estimado estudiante! En que puedo ayudarte?"},
-    {message:"como estas?", response:"bien y tú?"},
-    {message:"cual es tu nombre?", response:"Soy un chatbot de FING!"}
+    {message:"cual es la duracion de la carrera ingenieria en sistemas en la ujgh", response:"La carrera dura entre 4 a 5 años"},
+    {message:"en cuanto esta la unidad credito?", response:"La unidad credito esta en 15$"},
+    {message:"precio de la unidad credito?", response:"Cada U.C esta en 15$"}
 ]
 
+// Funcion para que el usuario envie un mensaje
 
 function sendMessage(userMessage) {
 
@@ -29,14 +32,24 @@ function chatbotResponse(userMessage){
 
     var chatbotmessage = "";
 
-    if(userMessage == "hola"){
-        chatbotmessage = "¡Saludos estimado estudiante! En que puedo ayudarte?";
+     if (userMessage.length  > 5 || userMessage == "hola"){
+        var result = arrayOfPossibleMessage.filter(val => val.message.includes(userMessage.toLowerCase()));
+
+        if(result.length > 0){
+            var response = result[0].response;
+            chatbotmessage = response;
+        
+        }else{
+            chatbotmessage = "no entendi tu mensaje disculpe"
+        }
+    }else{
+        chatbotmessage = "por favor envie un mensaje diferente"
     }
 
 
     var messageElement = document.createElement("div");
 
-    messageElement.innerHTML = "<span>Chatbot 🤖: </span>"+
+    messageElement.innerHTML = "<span>Asistente Virtual FING 🤖: </span>"+
                                 "<span>"+chatbotmessage+"</span>";
 
     chatContainer.appendChild(messageElement);  
