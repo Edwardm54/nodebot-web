@@ -1,7 +1,7 @@
-const express = require("express");
-const ejs = require ("ejs");
+var express = require("express");
+var ejs = require ("ejs");
 
-const app = express();
+var app = express();
 
 app.use(express.static("public"));
 app.set("view engine", "ejs");

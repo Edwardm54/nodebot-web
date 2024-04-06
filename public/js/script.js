@@ -1,17 +1,24 @@
-const sendBtn = document.getElementById("sendBtn");
-const textbox = document.getElementById("textbox");
-const chatContainer = document.getElementById("chatContainer");
+var  sendBtn = document.getElementById("sendBtn");
+var  textbox = document.getElementById("textbox");
+var  chatContainer = document.getElementById("chatContainer");
 
-const user = { message: "" };
+var user = {message:""};
+
+
+var arrayOfPossibleMessage = [
+    {message:"hola", response:"¡Saludos estimado estudiante! En que puedo ayudarte?"},
+    {message:"como estas?", response:"bien y tú?"},
+    {message:"cual es tu nombre?", response:"Soy un chatbot de FING!"}
+]
 
 
 function sendMessage(userMessage) {
 
-    const messageElement = document.createElement("div");
+    var messageElement = document.createElement("div");
     messageElement.style.textAlign = "right";
     messageElement.style.margin = "10px"
 
-    messageElement.innerHTML = "<span>Estudiante: </span>" +
+    messageElement.innerHTML = "<span>Estudiante 👨‍💻: </span>" +
         "<span>" + userMessage + "</span>";
     chatContainer.appendChild(messageElement);
 }
@@ -20,15 +27,16 @@ function sendMessage(userMessage) {
 
 function chatbotResponse(userMessage){
 
-    const chatbotmessage = "";
+    var chatbotmessage = "";
 
-    if(userMessage == "hi"){
-        chatbotmessage = "hello";
+    if(userMessage == "hola"){
+        chatbotmessage = "¡Saludos estimado estudiante! En que puedo ayudarte?";
     }
 
-    const messageElement = document.createElement("div");
 
-    messageElement.innerHTML = "<span>Chatbot: </span>"+
+    var messageElement = document.createElement("div");
+
+    messageElement.innerHTML = "<span>Chatbot 🤖: </span>"+
                                 "<span>"+chatbotmessage+"</span>";
 
     chatContainer.appendChild(messageElement);  
@@ -38,7 +46,7 @@ function chatbotResponse(userMessage){
 
 sendBtn.addEventListener("click", function (e) {
 
-    const userMessage = textbox.value;
+    var userMessage = textbox.value;
 
     if (userMessage == "") {
         alert("Por favor escribe un mensaje");
@@ -59,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("reset-chat-btn").addEventListener("click", function () {
 
-        const chatContainer = document.getElementById("chatContainer");
+        var chatContainer = document.getElementById("chatContainer");
         chatContainer.innerHTML = "";
     });
 });
