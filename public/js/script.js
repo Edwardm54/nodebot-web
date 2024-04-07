@@ -1,85 +1,91 @@
-var  sendBtn = document.getElementById("sendBtn");
-var  textbox = document.getElementById("textbox");
-var  chatContainer = document.getElementById("chatContainer");
+var sendBtn = document.getElementById("sendBtn");
+var textbox = document.getElementById("textbox");
+var chatContainer = document.getElementById("chatContainer");
 
+// Función para remover acentos y normalizar texto
+function removeAccents(text) {
+    return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
 
-var user = {message:""};
-
+var user = { message: "" };
 
 var arrayOfPossibleMessage = [
-    {message:"hola", response:"¡Saludos estimado estudiante! En que puedo ayudarte?"},
-    {message:"cual es la duracion de la carrera ingenieria en sistemas en la ujgh", response:"La carrera dura entre 4 a 5 años"},
-    {message:"en cuanto esta la unidad credito?", response:"La unidad credito esta en 15$"},
-    {message:"precio de la unidad credito?", response:"Cada U.C esta en 15$"}
-]
+    { message: "hola", response: "¡Saludos estimado estudiante! ¿En qué puedo ayudarte?" },
+    { message: "cual es la duracion de la carrera ingenieria en sistemas en la ujgh", response: "La carrera dura entre 4 a 5 años" },
+    { message: "en cuanto esta la unidad credito?", response: "La unidad crédito está en 15$" },
+    { message: "precio de la unidad credito?", response: "Cada U.C está en 15$" }
+];
 
-// Funcion para que el usuario envie un mensaje
-
+// Función para que el usuario envíe un mensaje
 function sendMessage(userMessage) {
+    // Remover acentos del mensaje del usuario
+    userMessage = removeAccents(userMessage);
 
     var messageElement = document.createElement("div");
     messageElement.style.textAlign = "right";
-    messageElement.style.margin = "10px"
+    messageElement.style.margin = "10px";
 
     messageElement.innerHTML = "<span>Estudiante 👨‍💻: </span>" +
         "<span>" + userMessage + "</span>";
     chatContainer.appendChild(messageElement);
 }
 
-// Funcion del ChatBot para responder mensajes
-
-function chatbotResponse(userMessage){
-
+// Función del ChatBot para responder mensajes
+function chatbotResponse(userMessage) {
     var chatbotmessage = "";
 
-     if (userMessage.length  > 5 || userMessage == "hola"){
-        var result = arrayOfPossibleMessage.filter(val => val.message.includes(userMessage.toLowerCase()));
+    // Normaliza el mensaje del usuario para que esté en minúsculas y sin acentos
+    var normalizedUserMessage = removeAccents(userMessage.toLowerCase());
 
-        if(result.length > 0){
+    if (userMessage.length > 5 || normalizedUserMessage == "hola") {
+        var result = arrayOfPossibleMessage.filter(function (val) {
+            // Normaliza el mensaje posible para comparar sin acentos
+            var normalizedValMessage = removeAccents(val.message.toLowerCase());
+            return normalizedValMessage.includes(normalizedUserMessage);
+        });
+
+        if (result.length > 0) {
             var response = result[0].response;
             chatbotmessage = response;
-        
-        }else{
-            chatbotmessage = "no entendi tu mensaje disculpe"
+        } else {
+            chatbotmessage = "no entendi tu mensaje disculpe";
         }
-    }else{
-        chatbotmessage = "por favor envie un mensaje diferente"
+    } else {
+        chatbotmessage = "por favor envie un mensaje diferente";
     }
 
-
     var messageElement = document.createElement("div");
+    messageElement.innerHTML = "<span>Asistente Virtual FING 🤖: </span>" +
+        "<span>" + chatbotmessage + "</span>";
 
-    messageElement.innerHTML = "<span>Asistente Virtual FING 🤖: </span>"+
-                                "<span>"+chatbotmessage+"</span>";
+    // Delay del mensaje, CSS + JavaScritp
+    setTimeout(()=>{
+        messageElement.animate([{easing:"ease-in",opacity:0.3},{opacity:1}],{duration:1000})
+        chatContainer.appendChild(messageElement);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    },1000)
 
-    chatContainer.appendChild(messageElement);  
+    
 }
 
-// Funcion para Enviar el mensaje "Boton Enviar"
-
+// Función para enviar el mensaje "Botón Enviar"
 sendBtn.addEventListener("click", function (e) {
-
     var userMessage = textbox.value;
 
     if (userMessage == "") {
         alert("Por favor escribe un mensaje");
     } else {
-
         let userMessageText = userMessage.trim();
         user.message = userMessageText;
         textbox.value = "";
         sendMessage(userMessageText);
-        chatbotResponse(userMessageText)
+        chatbotResponse(userMessageText);
     }
-
 });
 
-// Boton de Reinicio
-
+// Botón de Reinicio
 document.addEventListener("DOMContentLoaded", function () {
-
     document.getElementById("reset-chat-btn").addEventListener("click", function () {
-
         var chatContainer = document.getElementById("chatContainer");
         chatContainer.innerHTML = "";
     });
