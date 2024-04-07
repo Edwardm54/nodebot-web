@@ -1,11 +1,12 @@
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins','Open Sans',Arial;
+      font-family: "Black Ops One", system-ui;
+      font-weight: 400;
+      font-style: normal;  
+    font-size: 15px;
 }
 
 .body {
@@ -15,49 +16,35 @@
     background-repeat: no-repeat;
 }
 
-.nav-bar {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    padding: 25px 1.5rem;
-    height: 60px;
-    background-color: #008AFC;
+nav{
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px;
+  padding-left: 5%;
+  padding-right: 5%;
+  background-color: #008AFC;
+  border: 2px solid #333;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 
-.logo {
-    color: aliceblue;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 1.25rem;
-    margin-left: 12px;
+nav h1{
+  font-size: 20px;
+  color: white;
 }
 
-.fas {
-    color: white;
-    font-size: 1.25rem;
-    cursor: pointer;
+nav ul li {
+  display: inline-block;
+  padding: 0px 20px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  font-size: 17px;
 }
 
-.list-nav-bar {
-    list-style: none;
-    text-transform: uppercase;
-    display: flex;
-    gap: 20px;
-}
-
-.list-item a {
-    cursor: pointer;
-    font-size: 1.25rem;
-    text-decoration: none;
-    color: #fff;
-    text-align: center;
-    margin-left: 0.5rem;
-    letter-spacing: 0.1rem;
-    transition: color 0.3s ease;
-}
-
-.list-item a:hover {
-    color: #a0a0a0;
+nav ul li:hover{
+  color: white;
 }
 
 .main-content {
@@ -71,38 +58,51 @@
 }
 
 .footer {
-  background-color: white;
-  padding: 50px 0;
+  color: #fff;
+  padding: 40px 0;
+  font-family: Arial, sans-serif;
 }
 
-.footer h5 {
-  color: #333;
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.footer ul {
-  padding-left: 0;
-  list-style: none;
+.footer-icons {
+  margin-bottom: 20px;
 }
 
-.footer ul li {
-  margin-bottom: 10px;
-}
-
-.footer ul li a {
-  text-decoration: none;
-  color: #4787E8;
+.footer-icons .social-icon {
+  color: black;
+  font-size: 24px;
+  margin-right: 10px;
   transition: color 0.3s ease;
 }
 
-.footer ul li a:hover {
+.footer-icons .social-icon:hover {
+  color: #008AFC;
+}
+
+.footer-links a {
   color: black;
+  text-decoration: none;
+  margin-right: 20px;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #008AFC;
 }
 
 .footer hr {
   border-top: 2px solid black;
 }
 
-.footer .text-muted {
-  margin-top: 20px;
+.footer-bottom {
+  color: black;
   text-align: center;
+  font-size: 14px;
 }

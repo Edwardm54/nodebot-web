@@ -12,8 +12,12 @@ var user = { message: "" };
 var arrayOfPossibleMessage = [
     { message: "hola", response: "¡Saludos estimado estudiante! ¿En qué puedo ayudarte?" },
     { message: "cual es la duracion de la carrera ingenieria en sistemas en la ujgh", response: "La carrera dura entre 4 a 5 años" },
-    { message: "en cuanto esta la unidad credito?", response: "La unidad crédito está en 15$" },
-    { message: "precio de la unidad credito?", response: "Cada U.C está en 15$" }
+    { message: "en cuanto esta la unidad credito?", response: "La U.C cuenta con un valor de: 15$ dolares"},
+    
+    // Region de los Pensum
+    {message: "sistemas", response:"http://ujgh.edu.ve/wp-content/uploads/2020/10/Pensum-Escuela-de-Sistemas.pdf"},
+    {message: "computacion", response:"http://ujgh.edu.ve/wp-content/uploads/2020/10/Pensum-Escuela-de-Computacion.pdf"}
+    
 ];
 
 // Función para que el usuario envíe un mensaje
