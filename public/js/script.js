@@ -13,7 +13,7 @@ var arrayOfPossibleMessage = [
     { message: "hola", response: "¡Saludos estimado estudiante! ¿En qué puedo ayudarte?" },
     { message: "cual es la duracion de la carrera ingenieria en sistemas en la ujgh", response: "La carrera dura entre 4 a 5 años" },
     { message: "en cuanto esta la unidad credito?", response: "La U.C cuenta con un valor de: 15$ dolares"},
-    
+
     // Region de los Pensum
     {message: "sistemas", response:"http://ujgh.edu.ve/wp-content/uploads/2020/10/Pensum-Escuela-de-Sistemas.pdf"},
     {message: "computacion", response:"http://ujgh.edu.ve/wp-content/uploads/2020/10/Pensum-Escuela-de-Computacion.pdf"}
@@ -27,7 +27,7 @@ function sendMessage(userMessage) {
 
     var messageElement = document.createElement("div");
     messageElement.style.textAlign = "right";
-    messageElement.style.margin = "10px";
+    messageElement.style.margin = "20px";
 
     messageElement.innerHTML = "<span>Estudiante 👨‍💻: </span>" +
         "<span>" + userMessage + "</span>";
@@ -52,10 +52,10 @@ function chatbotResponse(userMessage) {
             var response = result[0].response;
             chatbotmessage = response;
         } else {
-            chatbotmessage = "no entendi tu mensaje disculpe";
+            chatbotmessage = "no entendi el mensaje disculpe.";
         }
     } else {
-        chatbotmessage = "por favor envie un mensaje diferente";
+        chatbotmessage = "por favor envie un mensaje diferente.";
     }
 
     var messageElement = document.createElement("div");
