@@ -168,6 +168,12 @@ nav ul li a:hover {
 .info_single a {
   color: white;
   text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.info_single a:hover {
+  color: yellow;
+  text-decoration: none;
 }
 
 button.contact_form_submit {
