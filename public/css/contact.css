@@ -181,6 +181,11 @@ button.contact_form_submit {
   cursor: pointer;
   font-size: 14px;
   letter-spacing: 2px;
+  transition: color 0.3s ease;
+}
+
+button.contact_form_submit:hover {
+  color: #008AFC;
 }
 
 .socil_item_inner li {
