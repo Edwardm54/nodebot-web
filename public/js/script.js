@@ -13,10 +13,10 @@ var user = { message: "" };
 var arrayOfPossibleMessage = [
     { message: "hola", response: "¡Saludos estimado estudiante! ¿En qué puedo ayudarte?" },
     { message: "cual es la duracion de la carrera ingenieria en sistemas en la ujgh", response: "La carrera dura entre 4 a 5 años" },
-    { message: "en cuanto esta la unidad credito?", response: "La U.C cuenta con un valor de: 15$ dolares"},
+    { message: "en cuanto esta la unidad credito?", response: "La U.C cuenta con un valor de: 15$ dolares" },
     // Región de los Pensum
-    {message: "sistemas", response:"http://ujgh.edu.ve/wp-content/uploads/2020/10/Pensum-Escuela-de-Sistemas.pdf"},
-    {message: "computacion", response:"http://ujgh.edu.ve/wp-content/uploads/2020/10/Pensum-Escuela-de-Computacion.pdf"}
+    { message: "sistemas", response: "http://ujgh.edu.ve/wp-content/uploads/2020/10/Pensum-Escuela-de-Sistemas.pdf" },
+    { message: "computacion", response: "http://ujgh.edu.ve/wp-content/uploads/2020/10/Pensum-Escuela-de-Computacion.pdf" }
 ];
 
 // Función para que el usuario envíe un mensaje
@@ -65,11 +65,11 @@ function chatbotResponse(userMessage) {
 
     // Delay del mensaje, CSS + JavaScript
 
-    setTimeout(()=>{
-        messageElement.animate([{easing:"ease-in",opacity:0.3},{opacity:1}],{duration:1000})
+    setTimeout(() => {
+        messageElement.animate([{ easing: "ease-in", opacity: 0.3 }, { opacity: 1 }], { duration: 1000 })
         chatContainer.appendChild(messageElement);
         chatContainer.scrollTop = chatContainer.scrollHeight;
-    },1000)
+    }, 1000)
 }
 
 // Función para enviar el mensaje "Botón Enviar"
@@ -88,7 +88,7 @@ function sendMessageAndResponse() {
     } else {
         sendMessage(userMessage);
         chatbotResponse(userMessage);
-        textbox.value = ""; 
+        textbox.value = "";
     }
 }
 
@@ -103,10 +103,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Agregar evento de escucha al presionar la tecla "Enter" en el cuadro de texto
 
-textbox.addEventListener("keypress", function(event) {
-    
+textbox.addEventListener("keypress", function (event) {
+
     if (event.key === "Enter") {
-        
+
         event.preventDefault();
 
         sendMessageAndResponse();
