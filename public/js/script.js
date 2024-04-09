@@ -26,8 +26,10 @@ function sendMessage(userMessage) {
     userMessage = removeAccents(userMessage);
 
     var messageElement = document.createElement("div");
-    messageElement.style.textAlign = "right";
-    messageElement.style.margin = "20px";
+    messageElement.style.textAlign = "left";
+    messageElement.style.margin = "10px";
+    messageElement.style.marginTop = "20px";
+    messageElement.style.color = "#008AFC"
 
     messageElement.innerHTML = "<span>Estudiante 👨‍💻: </span>" +
         "<span>" + userMessage + "</span>";
@@ -42,11 +44,11 @@ function chatbotResponse(userMessage) {
     // Normaliza el mensaje del usuario para que esté en minúsculas y sin acentos
     var normalizedUserMessage = removeAccents(userMessage.toLowerCase());
 
-    if (userMessage.length > 5 || normalizedUserMessage == "hola") {
+    if (userMessage.length > 5 || normalizedUserMessage.includes("hola")) {
         var result = arrayOfPossibleMessage.filter(function (val) {
 
             var normalizedValMessage = removeAccents(val.message.toLowerCase());
-            return normalizedValMessage.includes(normalizedUserMessage);
+            return normalizedUserMessage.includes(normalizedValMessage);
         });
 
         if (result.length > 0) {
@@ -62,15 +64,20 @@ function chatbotResponse(userMessage) {
     var messageElement = document.createElement("div");
     messageElement.innerHTML = "<span>Asistente Virtual FING 🤖: </span>" +
         "<span>" + chatbotmessage + "</span>";
+    messageElement.style.margin = "10px";
+
+    // Añade un poco de espacio en blanco entre cada mensaje
+    messageElement.style.marginTop = "20px";
 
     // Delay del mensaje, CSS + JavaScript
 
     setTimeout(() => {
-        messageElement.animate([{ easing: "ease-in", opacity: 0.3 }, { opacity: 1 }], { duration: 1000 })
+        messageElement.animate([{ easing: "ease-in", opacity: 0.4 }, { opacity: 1 }], { duration: 1000 })
         chatContainer.appendChild(messageElement);
         chatContainer.scrollTop = chatContainer.scrollHeight;
     }, 1000)
 }
+
 
 // Función para enviar el mensaje "Botón Enviar"
 
@@ -84,7 +91,7 @@ function sendMessageAndResponse() {
     var userMessage = textbox.value.trim();
 
     if (userMessage == "") {
-        alert("Por favor escribe un mensaje");
+        //alert("Por favor escribe un mensaje");
     } else {
         sendMessage(userMessage);
         chatbotResponse(userMessage);
