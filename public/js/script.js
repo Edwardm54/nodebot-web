@@ -52,11 +52,12 @@ async function sendMessageToWitAI(userMessage) {
 // Función para obtener la respuesta del chatbot basada en la intención
 function getResponseForIntent(intent) {
     switch (intent) {
+
         case 'saludos':
-            return '¡Saludos estimado estudiante! Soy un asistente virtual diseñado para la facultad de ingenieria de la UJGH! ¿Dime en que puedo ayudarte?';
+            return '¡Saludos estimado estudiante! Soy un asistente virtual diseñado para la facultad de ingenieria de la UJGH! Para iniciar indica: Lista informarme';
         
-        case 'comandos':
-            return 'No puedo darte información sobre mis comandos disculpa';
+        case 'lista':
+            return 'Nuevos Ingresos - Estudiantes Regulares - Inscricpiones Presenciales - Costo Unidad Credito(U.C) - Inicio de Clases - Pago - Noticias y Eventos - Pdf Sistemas - Pdf Computación - Eventos Especiales desde la Facultad - Consultas - Incidencias - Laboratorios - Contacto Principal - Decanato - Horarios de Comite - Horarios Docentes - Horarios Coordinadores de Eje - Asesorias y Consultas';
 
         case 'despedidas':
             return 'Hasta luego, ha sido un placer asistirte!';
@@ -108,14 +109,17 @@ function getResponseForIntent(intent) {
         
         // Servicios de la facultad
 
-        case 'eventos especiales desde la facultad':
+        case 'eventos_especiales_desde_la_facultad':
             return 'Nuestra facultad imparte charlas para todos nuestros estudiantes, mantente al tanto de nuestras redes sociales, las puedes encontrar abajo del todo!';
 
         case 'consultas':
             return 'Si tienes alguna duda que requiera más informacion dirigete al decanato de la facultad.';
 
-        case 'consultas':
+        case 'incidencias':
              return 'Estimado estudiante, te recomiendo dirigirte al decanato de nuestra facultad para presentar algún caso de incidencias por parte de algún docente de nuestra institución.';
+
+             case 'informarme':
+                return 'Puedes hablar con nuestra decana la profesora Barbara Ordoñez, si no se encuentra alli espera fuera del decanato por favor, sigue las dormativas de la institución, gracias.';
 
         case 'laboratorios':
             return 'Los laboratorios de computación se encuentran en el hall de la institucion, mano derecha siguiendo por el pasillo.';
