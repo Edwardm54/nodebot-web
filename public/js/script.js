@@ -54,7 +54,7 @@ function getResponseForIntent(intent) {
     switch (intent) {
 
         case 'saludos':
-            return '¡Saludos estimado estudiante! Soy un asistente virtual diseñado para la facultad de ingenieria de la UJGH! Para iniciar indica: Lista informarme';
+            return '¡Saludos estimado estudiante! Soy un asistente virtual diseñado para la facultad de ingenieria de la UJGH! Para iniciar indica: Lista';
         
         case 'lista':
             return 'Nuevos Ingresos - Estudiantes Regulares - Inscricpiones Presenciales - Costo Unidad Credito(U.C) - Inicio de Clases - Pago - Noticias y Eventos - Pdf Sistemas - Pdf Computación - Eventos Especiales desde la Facultad - Consultas - Incidencias - Laboratorios - Contacto Principal - Decanato - Horarios de Comite - Horarios Docentes - Horarios Coordinadores de Eje - Asesorias y Consultas';
