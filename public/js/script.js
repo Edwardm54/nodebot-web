@@ -100,6 +100,12 @@ function getResponseForIntent(intent) {
          case 'noticias_eventos':
             return 'Puedes seguirnos en nuestras redes sociales para manternerte informado sobre nuestros eventos, las tienes abajo del todo!';
         
+        case 'nuestra_institucion':
+            return 'La Universidad José Gregorio Hernández es un elemento del Sistema Educativo Venezolano, nivel universitario, cuyo propósito, a través de las funciones académicas de la institución';
+        
+        case 'vision':
+             return 'Ser reconocida como una de las mejores universidades de Venezuela por su excelencia académica y administrativa, capacidad para innovar y emprender, su compromiso con el desarrollo sostenible y sustentable y de ciudadanía ambiocéntrica y su infraestructura y tecnología.';
+        
         // Servicios de la facultad
 
         case 'eventos especiales desde la facultad':
